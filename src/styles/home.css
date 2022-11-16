@@ -1,5 +1,5 @@
 body{
-  background-color: aqua;
+  background:white;
 }
 div.scrollmenu {
     overflow: auto;
@@ -17,5 +17,9 @@ div.scrollmenu {
 .card{
     min-height: 300px;
     min-width: 300px;
-    margin-right: 5px;
+    margin-right: 15px;
+    border-radius: 15px;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(6,1,1,1) 100%);
+    color:aliceblue;
 }
