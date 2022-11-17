@@ -7,7 +7,7 @@ export const Home = () => {
 	const[planets, setPlanets]=useState([])
 
 	useEffect(()=>{
-		fetch('https://www.swapi.tech/api/people')
+		fetch("https://swapi.dev/api/people/")
 		.then((response)=>{
 			return response.json()
 		})
@@ -17,7 +17,7 @@ export const Home = () => {
 	})
 
 	useEffect(()=>{
-		fetch('https://www.swapi.tech/api/planets')
+		fetch("https://swapi.dev/api/planets/")
 		.then((response)=>{
 			return response.json()
 		})
@@ -32,15 +32,19 @@ export const Home = () => {
 		<div className="scrollmenu">
 			<div className="container-fluid py-2">
 				<h2 className="font-weight-light">Characters</h2>
+				{characters.length===0 ? <p className="loading">LOADING...</p>: ''}
 				<div className="d-flex flex-row flex-nowrap">
 					{characters.map((character, index)=>{
 						return (
-							<div className="card">
+							<div className="card" key={index}>
 							<img src="..." className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {character.name}</h5>
-							<p className="card-text"></p>
+							<p className="card-text">Gender: {character.gender}</p>
+							<p className="card-text">Eye color: {character.eye_color}</p>
+							<p className="card-text">Hair color: {character.hair_color}</p>
 							<a href="#" className="btn btn-primary">Learn More</a>
+							<a href="#" className="btn btn-primary">Like</a>
 							</div>
 							</div>
 						)
@@ -54,15 +58,18 @@ export const Home = () => {
 		<div className="scrollmenu">
 			<div className="container-fluid py-2">
 				<h2 className="font-weight-light">Planets</h2>
+				{planets.length===0 ? <p className="loading">LOADING...</p>: ''}
 				<div className="d-flex flex-row flex-nowrap">
-				{planets.map((planet, index)=>{
+				{planets.map((planet, value)=>{
 						return (
-							<div className="card">
+							<div className="card" key={value}>
 							<img src="..." className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {planet.name}</h5>
-							<p className="card-text"></p>
+							<p className="card-text">Population: {planet.population}</p>
+							<p className="card-text">Terrain: {planet.terrain}</p>
 							<a href="#" className="btn btn-primary">Learn More</a>
+							<a href="#" className="btn btn-primary">Like</a>
 							</div>
 							</div>
 						)
