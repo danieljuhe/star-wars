@@ -1,5 +1,5 @@
 body{
-  background:white;
+  background:url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
 }
 div.scrollmenu {
     overflow: auto;
@@ -14,12 +14,25 @@ div.scrollmenu {
     text-decoration: none;
   }
 
+h2{
+  color:aliceblue;
+  
+}
+
+.loading{
+  color:aliceblue;
+  text-align: center;
+}
+
 .card{
     min-height: 300px;
     min-width: 300px;
     margin-right: 15px;
     border-radius: 15px;
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(6,1,1,1) 100%);
+    background: rgb(38, 45, 79);
     color:aliceblue;
+}
+.btn{
+  background-color: transparent;
+  border-color: rgb(0, 132, 255);
 }
