@@ -5,7 +5,7 @@ export const Home = () => {
 
 	const[characters, setCharacters]=useState([]);
 	const[planets, setPlanets]=useState([]);
-	const[starships, setStarShips]=useState([])
+	const[starships, setStarShips]=useState([]);
 
 	useEffect(()=>{
 		fetch("https://swapi.dev/api/people/")
@@ -36,6 +36,7 @@ export const Home = () => {
 			setStarShips(response.results)
 		})
 	})
+
 	
 	return(
 	<div className="container">
@@ -49,7 +50,7 @@ export const Home = () => {
 					{characters.map((character, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png" className="card-img-top" alt="..."/>
+							<img src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/hc_480x270/public/media/image/2020/06/luke-skywalker-1979947.jpg?itok=vIDDUIgq" className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {character.name}</h5>
 							<p className="card-text">Gender: {character.gender}</p>
@@ -61,7 +62,6 @@ export const Home = () => {
 							</div>
 						)
 					})}
-						
 				</div>
 			</div>
 		</div>
