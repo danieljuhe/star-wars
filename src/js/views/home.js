@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Component } from "react";
 import "../../styles/home.css";
 import Character from "../component/charcater";
+import StarShips from "../component/starships";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -30,8 +31,8 @@ export const Home = () => {
 	})
 
 	useEffect(()=>{
-		fetch("https://swapi.tech/api/starships")
-		.then((response)=>{
+    fetch("https://swapi.tech/api/starships/")
+    .then((response)=>{
 			return response.json()
 		})
 		.then((response)=>{
@@ -100,13 +101,12 @@ export const Home = () => {
 					{starships.map((starships, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/11/10/15103170397780.jpg" className="card-img-top" alt="..."/>
+							<img src={`https://starwars-visualguide.com/assets/img/starships/${starships.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {starships.name}</h5>
-							<p className="card-text">Model: {starships.model}</p>
-							<p className="card-text">Starship Class: {starships.starship_class}</p>
-							<p className="card-text">Crew: {starships.crew}</p>
+							<Link to={`/starships/${starships.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
+							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
 							</div>
 							</div>

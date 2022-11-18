@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import Starships from "./component/starships";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
@@ -28,6 +29,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/starships/:id">
+							<Starships />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
