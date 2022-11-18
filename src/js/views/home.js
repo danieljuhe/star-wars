@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Component } from "react";
 import "../../styles/home.css";
+import Character from "../component/charcater";
 import StarShips from "../component/starships";
 import { Link } from "react-router-dom";
 
@@ -7,10 +8,10 @@ export const Home = () => {
 
 	const[characters, setCharacters]=useState([]);
 	const[planets, setPlanets]=useState([]);
-	const[starships, setStarShips]=useState([])
+	const[starships, setStarShips]=useState([]);
 
 	useEffect(()=>{
-		fetch("https://swapi.dev/api/people/")
+		fetch("https://swapi.tech/api/people/")
 		.then((response)=>{
 			return response.json()
 		})
@@ -20,7 +21,7 @@ export const Home = () => {
 	})
 
 	useEffect(()=>{
-		fetch("https://swapi.dev/api/planets/")
+		fetch("https://swapi.tech/api/planets/")
 		.then((response)=>{
 			return response.json()
 		})
@@ -30,14 +31,15 @@ export const Home = () => {
 	})
 
 	useEffect(()=>{
-		fetch("https://swapi.tech/api/starships/")
-		.then((response)=>{
+    fetch("https://swapi.tech/api/starships/")
+    .then((response)=>{
 			return response.json()
 		})
 		.then((response)=>{
 			setStarShips(response.results)
 		})
 	})
+
 	
 	return(
 	<div className="container">
@@ -51,19 +53,17 @@ export const Home = () => {
 					{characters.map((character, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png" className="card-img-top" alt="..."/>
+							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {character.name}</h5>
-							<p className="card-text">Gender: {character.gender}</p>
-							<p className="card-text">Eye color: {character.eye_color}</p>
-							<p className="card-text">Hair color: {character.hair_color}</p>
+							<Link to={`/characterdetail/${character.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
-							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
+							</Link>
+							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
 							</div>
 							</div>
 						)
 					})}
-						
 				</div>
 			</div>
 		</div>
@@ -78,11 +78,9 @@ export const Home = () => {
 				{planets.map((planet, value)=>{
 						return (
 							<div className="card" key={value}>
-							<img src="https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png" className="card-img-top" alt="..."/>
+							<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {planet.name}</h5>
-							<p className="card-text">Population: {planet.population}</p>
-							<p className="card-text">Terrain: {planet.terrain}</p>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
 							</div>
