@@ -7,11 +7,6 @@ export const Navbar = () => {
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1 nav-logo ms-3"><i class="fas fa-jedi"></i></span>
 			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div>
 			<div>
                     <button class="btn btn-secondary dropdown-toggle me-4" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
