@@ -104,7 +104,9 @@ export const Home = () => {
 							<img src={`https://starwars-visualguide.com/assets/img/starships/${starships.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {starships.name}</h5>
-							<Link to={`/starships/${starships.uid}`}>
+							<p className="card-text">Model: {starships.model}</p>
+							<p className="card-text">Starship Class: {starships.starship_class}</p>
+							<p className="card-text">Crew: {starships.crew}</p>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
