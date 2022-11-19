@@ -43,9 +43,9 @@ const Layout = () => {
 							<Character />
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
+			<Footer />
 		</div>
 	);
 };
