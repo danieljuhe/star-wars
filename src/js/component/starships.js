@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import home  from "../views/home";
+
 
 const Starships = () =>{
     const params = useParams()
@@ -9,28 +8,30 @@ const Starships = () =>{
 
     useEffect(()=>{
         fetch(`https://swapi.tech/api/starships/${params.uid}`)
-
-    }, [])
-    return <h1 className="footer-2">Detalle de nave: {params.id}</h1>
-        
-       /* then((response) =>{
+         .then((response) =>{
             return response.json()
         }).then((response) =>{
-            setStarships(response)
+            setStarships(response.result.properties)
         })
     }, []);
         return <div>
         {   
-            starships ? <h1 className="footer-2">Nombre: {starships.name}</h1> : 'Cargando...'
+            starships ? 
+            <div className="container my-5">
+            <div className="col-md-6 mx-auto">
+            <div class="card">
+            <img src={`https://starwars-visualguide.com/assets/img/starships/${params.uid}.jpg`} class="card-img-top" alt="..."/>
+            <div class="card-body">
+                <h5 class="card-title">{starships.name}</h5>
+            </div>
+            </div>
+            </div>
+            </div>
+            : 'Cargando...'
         }
-        </div>*/
+               </div>
+               
 }
 
 export default Starships;
 
-   /*.
-        
-        
-        
-        }, [])
-     return <h1 className="footer-2">Detalle de nave: {params.name}</h1>*/

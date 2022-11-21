@@ -99,13 +99,13 @@ export const Home = () => {
 				{starships.length===0 ?  <p className="loading"><div class="lds-roller"><div></div><div></div><div>
 					</div><div></div><div></div><div></div><div></div><div></div></div></p>: ''}
 				<div className="d-flex flex-row flex-nowrap">
-					{starships.map((starships, index)=>{
+					{starships.map((starship, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src={`https://starwars-visualguide.com/assets/img/starships/${starships.uid}.jpg`} className="card-img-top" alt="..."/>
+							<img src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
-							<h5 className="card-title">Name: {starships.name}</h5>
-							<Link to={`/starships/${starships.uid}`}>
+							<h5 className="card-title">Name: {starship.name}</h5>
+							<Link to={`/starships/${starship.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
@@ -113,7 +113,6 @@ export const Home = () => {
 							</div>
 						)
 					})}
-						
 				</div>
 			</div>
 		</div>

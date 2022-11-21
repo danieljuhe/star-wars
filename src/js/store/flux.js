@@ -43,3 +43,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+
+// importar usecontex appcontex.js
+// define funcion para almacenar en actions
+// guardar en store
+// action. store accedes 
