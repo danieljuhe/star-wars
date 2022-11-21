@@ -1,8 +1,5 @@
 import React, { useEffect, useState, Component } from "react";
 import "../../styles/home.css";
-import Character from "../component/charcater";
-import StarShips from "../component/starships";
-
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -57,7 +54,7 @@ export const Home = () => {
 							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {character.name}</h5>
-							<Link to={`/characterdetail/${character.uid}`}>
+							<Link to={`/personaje/${character.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
@@ -83,7 +80,7 @@ export const Home = () => {
 							<div className="card-body">
 							<h5 className="card-title">Name: {planet.name}</h5>
 							<a href="#" className="btn btn-primary">Learn More</a>
-							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
+							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
 							</div>
 							</div>
 						)
