@@ -79,7 +79,9 @@ export const Home = () => {
 							<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
 							<h5 className="card-title">Name: {planet.name}</h5>
+							<Link to={`/planets/${planet.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
+							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
 							</div>
 							</div>
