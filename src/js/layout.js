@@ -31,6 +31,7 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+						<Route exact path="/starships/:uid">
 						<Route exact path="/personaje/:uid">
 							<Personaje />
 						</Route>
@@ -47,9 +48,9 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
+			<Footer />
 		</div>
 	);
 };

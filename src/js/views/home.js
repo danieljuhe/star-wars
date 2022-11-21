@@ -1,5 +1,10 @@
 import React, { useEffect, useState, Component } from "react";
 import "../../styles/home.css";
+
+import Character from "../component/charcater";
+import Starships from "../component/starships";
+
+
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -30,7 +35,7 @@ export const Home = () => {
 
 	useEffect(()=>{
 		fetch("https://swapi.tech/api/starships/")
-		.then((response)=>{
+		.then((response)=>{ 
 			return response.json()
 		})
 		.then((response)=>{
@@ -98,16 +103,13 @@ export const Home = () => {
 				{starships.length===0 ?  <p className="loading"><div class="lds-roller"><div></div><div></div><div>
 					</div><div></div><div></div><div></div><div></div><div></div></div></p>: ''}
 				<div className="d-flex flex-row flex-nowrap">
-					{starships.map((starships, index)=>{
+					{starships.map((starship, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src={`https://starwars-visualguide.com/assets/img/starships/${starships.uid}.jpg`} className="card-img-top" alt="..."/>
+							<img src={`https://starwars-visualguide.com/assets/img/starships/${starship.uid}.jpg`} className="card-img-top" alt="..."/>
 							<div className="card-body">
-							<h5 className="card-title">Name: {starships.name}</h5>
-							<p className="card-text">Model: {starships.model}</p>
-							<p className="card-text">Starship Class: {starships.starship_class}</p>
-							<p className="card-text">Crew: {starships.crew}</p>
-							<Link to={`/starships/${starships.uid}`}>
+							<h5 className="card-title">Name: {starship.name}</h5>
+							<Link to={`/starships/${starship.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
 							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
@@ -115,7 +117,6 @@ export const Home = () => {
 							</div>
 						)
 					})}
-						
 				</div>
 			</div>
 		</div>
