@@ -1,9 +1,6 @@
 import React, { useEffect, useState, Component } from "react";
 import "../../styles/home.css";
 
-import Character from "../component/charcater";
-import Starships from "../component/starships";
-
 
 import { Link } from "react-router-dom";
 
