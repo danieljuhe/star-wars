@@ -1,0 +1,8 @@
+.card{
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 15px;
+    border-radius: 15px;
+    background: rgba(38, 45, 79, 0.325);
+    color:aliceblue;
+  }
