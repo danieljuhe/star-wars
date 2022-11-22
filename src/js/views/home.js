@@ -9,6 +9,8 @@ export const Home = () => {
 	const[characters, setCharacters]=useState([]);
 	const[planets, setPlanets]=useState([]);
 	const[starships, setStarShips]=useState([]);
+	const[likes, setLikes]=useState();
+	const[list, setList]=useState([])
 
 	useEffect(()=>{
 		fetch("https://swapi.tech/api/people/")
@@ -53,14 +55,19 @@ export const Home = () => {
 					{characters.map((character, index)=>{
 						return (
 							<div className="card" key={index}>
-							<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} className="card-img-top" alt="..."/>
-							<div className="card-body">
-							<h5 className="card-title">Name: {character.name}</h5>
-							<Link to={`/personaje/${character.uid}`}>
-							<a href="#" className="btn btn-primary">Learn More</a>
-							</Link>
-							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
-							</div>
+								<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`} className="card-img-top" alt="..."/>
+								<div className="card-body">
+									<h5 className="card-title">Name: {character.name}</h5>
+									<Link to={`/personaje/${character.uid}`}>
+									<a href="#" className="btn btn-primary">Learn More</a>
+									</Link>
+									<a href="#" className="btn btn-primary" 
+										onClick={(event)=>{setLikes(`${character.name}`)
+											setList([...list,`${character.name}`])
+											setLikes(``)}}>
+										<i className="fa fa-heart text-warning"/>
+									</a>
+								</div>
 							</div>
 						)
 					})}
@@ -84,7 +91,9 @@ export const Home = () => {
 							<Link to={`/planets/${planet.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
-							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning"/></a>
+							<a href="#" className="btn btn-primary" onClick={(event)=>{setLikes(`${planet.name}`)
+											setList([...list,`${planet.name}`])
+											setLikes(``)}}><i className="fa fa-heart text-warning"/></a>
 							</div>
 							</div>
 						)
@@ -109,7 +118,9 @@ export const Home = () => {
 							<Link to={`/starships/${starship.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
-							<a href="#" className="btn btn-primary"><i className="fa fa-heart text-warning" /></a>
+							<a href="#" className="btn btn-primary" onClick={(event)=>{setLikes(`${starship.name}`)
+											setList([...list,`${starship.name}`])
+											setLikes(``)}}><i className="fa fa-heart text-warning" /></a>
 							</div>
 							</div>
 						)
