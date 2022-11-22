@@ -18,7 +18,7 @@ const Personaje =()=>{
 	})
 
     return (
-            <div className="container">
+            <div className="container my-5 justify-content-center">
                 <div className="card">
                     <div className="row g-0">
                         <div className="col-md-4">
