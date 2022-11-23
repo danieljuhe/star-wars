@@ -1,3 +1,5 @@
+import { StaticRouter } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			fav: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,6 +27,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
+			addToFav: (name) => {
+				const store = getStore()
+				setStore({ fav: [...store.fav, name]})
+			},
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
