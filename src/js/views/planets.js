@@ -26,8 +26,15 @@ const Planetas =()=>{
                         </div>
                         <div className="col-md-8">
                         <div className="card-body">
-                            <h3 className="card-title">{planet.name}</h3>
-                            <p className="card-text">The dead speak! The galaxy has heard a mysterious broadcast, a threat of REVENGE
+                        <h1 className="cardo">{planet.name}</h1><br/>
+                            <div className="css-typing">
+                                <p> Diameter: {planet.diameter} <br/></p>
+                                <p> Gravity: {planet.gravity} <br/></p>
+                                <p> Climate: {planet.climate} <br/></p>
+                                <p> Terrain: {planet.terrain} <br/> </p>
+                                <p> Population: {planet.population} </p>
+                            </div><br/>
+                            <p className="cardp">The dead speak! The galaxy has heard a mysterious broadcast, a threat of REVENGE
                                 in the sinister voice of the late EMPEROR PALPATINE.GENERAL LEIA ORGANA dispatches secret agents to 
                                 gather intelligence, while REY, the last hope of the Jedi, trains for battle against the diabolical 
                                 FIRST ORDER. Meanwhile, Supreme Leader KYLO REN rages in search of the phantom Emperor, determined to 
