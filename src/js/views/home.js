@@ -1,11 +1,12 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../../styles/home.css";
-
-
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+
 
 export const Home = () => {
 
+	const { store, actions } = useContext(Context);
 	const[characters, setCharacters]=useState([]);
 	const[planets, setPlanets]=useState([]);
 	const[starships, setStarShips]=useState([]);
@@ -61,10 +62,7 @@ export const Home = () => {
 									<Link to={`/personaje/${character.uid}`}>
 									<a href="#" className="btn btn-primary">Learn More</a>
 									</Link>
-									<a href="#" className="btn btn-primary" 
-										onClick={(event)=>{setLikes(`${character.name}`)
-											setList([...list,`${character.name}`])
-											setLikes(``)}}>
+									<a href="#" className="btn btn-primary" onClick={()=>{actions.addToFav(character.name)}}>
 										<i className="fa fa-heart text-warning"/>
 									</a>
 								</div>
@@ -91,9 +89,9 @@ export const Home = () => {
 							<Link to={`/planets/${planet.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
-							<a href="#" className="btn btn-primary" onClick={(event)=>{setLikes(`${planet.name}`)
-											setList([...list,`${planet.name}`])
-											setLikes(``)}}><i className="fa fa-heart text-warning"/></a>
+							<a href="#" className="btn btn-primary" onClick={()=>{actions.addToFav(planet.name)}}>
+								<i className="fa fa-heart text-warning"/>
+							</a>
 							</div>
 							</div>
 						)
@@ -118,9 +116,9 @@ export const Home = () => {
 							<Link to={`/starships/${starship.uid}`}>
 							<a href="#" className="btn btn-primary">Learn More</a>
 							</Link>
-							<a href="#" className="btn btn-primary" onClick={(event)=>{setLikes(`${starship.name}`)
-											setList([...list,`${starship.name}`])
-											setLikes(``)}}><i className="fa fa-heart text-warning" /></a>
+							<a href="#" className="btn btn-primary" onClick={()=>{actions.addToFav(starship.name)}}>
+								<i className="fa fa-heart text-warning" />
+							</a>
 							</div>
 							</div>
 						)
