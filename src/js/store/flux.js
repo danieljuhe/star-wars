@@ -32,6 +32,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore()
 				setStore({ fav: [...store.fav, name]})
 			},
+
+			deleteFav: (index) => {
+				const store = getStore()
+				const filteredFav = store.fav.filter((oneFav,i)=>index!=i)
+				setStore({ fav: filteredFav})
+			},
 			
 			changeColor: (index, color) => {
 				//get the store

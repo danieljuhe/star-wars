@@ -7,7 +7,7 @@ const Starships = () =>{
     const [starships, setStarships] = useState()
 
     useEffect(()=>{
-        fetch(`https://swapi.tech/api/starships/${params.uid}`)
+        fetch(`https://swapi.tech/api/starships/${params.starshipsId}`)
          .then((response) =>{
             return response.json()
         }).then((response) =>{
@@ -20,7 +20,7 @@ const Starships = () =>{
             <div className="container my-5">
             <div className="col-md-6 mx-auto">
             <div class="card">
-            <img src={`https://starwars-visualguide.com/assets/img/starships/${params.uid}.jpg`} class="card-img-top" alt="..."/>
+            <img src={`https://starwars-visualguide.com/assets/img/starships/${params.starshipsId}.jpg`} class="card-img-top" alt="..."/>
             <div class="card-body">
                 <h5 class="card-title">{starships.name}</h5>
             </div>

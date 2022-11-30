@@ -8,7 +8,7 @@ const Planetas =()=>{
     const [planet, setPlanet] = useState([]);
 
     useEffect(()=>{
-		fetch(`https://swapi.tech/api/planets/${params.uid}`)
+		fetch(`https://swapi.tech/api/planets/${params.planetsId}`)
 		.then((response)=>{
 			return response.json()
 		})
@@ -22,7 +22,7 @@ const Planetas =()=>{
                 <div className="card">
                     <div className="row g-0">
                         <div className="col-md-4">
-                        <img src={`https://starwars-visualguide.com/assets/img/planets/${params.uid}.jpg`} className="img-fluid rounded-start" alt="..."/>
+                        <img src={`https://starwars-visualguide.com/assets/img/planets/${params.planetsId}.jpg`} className="img-fluid rounded-start" alt="..."/>
                         </div>
                         <div className="col-md-8">
                         <div className="card-body">

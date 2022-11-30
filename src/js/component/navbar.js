@@ -21,9 +21,9 @@ export const Navbar = () => {
                     </button>
                     <ul class="dropdown-menu dropdown-menu-md-end">
                     {store.fav.map((favorito, index)=>{
-                        return <li>
-                                    <a class="dropdown-item" href="#" key={index}>{favorito}
-                                    <button className="libutton"><i class="fa-solid fa-trash-can"></i></button>
+                        return <li key={index}>
+                                    <a class="dropdown-item">{favorito}
+                                    <button className="libutton" onClick={()=>actions.deleteFav(index)}><i class="fa-solid fa-trash-can"></i></button>
                                     </a>
                                 </li>
                     })}
