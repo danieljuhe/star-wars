@@ -1,3 +1,5 @@
+import { StaticRouter } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			fav: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,6 +27,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+
+			addToFav: (name) => {
+				const store = getStore()
+				setStore({ fav: [...store.fav, name]})
+			},
+
+			deleteFav: (index) => {
+				const store = getStore()
+				const filteredFav = store.fav.filter((oneFav,i)=>index!=i)
+				setStore({ fav: filteredFav})
+			},
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -43,3 +58,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+
+// importar usecontex appcontex.js
+// define funcion para almacenar en actions
+// guardar en store
+// action. store accedes 

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import Starships from "./component/starships";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
@@ -9,6 +10,8 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import Personaje from "./views/pers";
+import Planetas from "./views/planets";
 
 //create your first component
 const Layout = () => {
@@ -28,6 +31,15 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+						<Route exact path="/personaje/:personajeId">
+							<Personaje />
+						</Route>
+						<Route exact path="/planets/:planetsId">
+							<Planetas />
+						</Route>
+						<Route exact path="/starships/:starshipsId">
+							<Starships />
+						</Route>
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
@@ -35,9 +47,9 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
+			<Footer />
 		</div>
 	);
 };
